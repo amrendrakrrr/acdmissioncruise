@@ -1,0 +1,133 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Globe2,
+  Search,
+  Stethoscope,
+  GraduationCap,
+  ShieldCheck,
+} from "lucide-react";
+
+export default function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-800 to-sky-500 py-24 lg:py-32">
+      {/* Background Blur */}
+      <div className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
+      <div className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-cyan-300/20 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6 text-center text-white">
+        <motion.span
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex rounded-full bg-white/20 px-5 py-2 text-sm font-semibold backdrop-blur"
+        >
+          🌍 MBBS Abroad Admissions 2026
+        </motion.span>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mt-8 text-5xl font-extrabold leading-tight lg:text-7xl"
+        >
+          Begin Your
+          <span className="block text-cyan-200">
+            Medical Career Abroad
+          </span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-blue-100"
+        >
+          Study MBBS at globally recognised medical universities with
+          affordable tuition fees, modern infrastructure, and expert guidance
+          from AdmissionCruise—from counselling to visa assistance.
+        </motion.p>
+
+        {/* Search Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="mx-auto mt-12 flex w-full max-w-3xl flex-col gap-4 rounded-2xl bg-white p-3 shadow-2xl md:flex-row"
+        >
+          <div className="flex flex-1 items-center gap-3 px-4">
+            <Search className="text-slate-400" size={22} />
+            <input
+              type="text"
+              placeholder="Search countries or universities..."
+              className="w-full bg-transparent py-3 text-slate-700 outline-none placeholder:text-slate-400"
+            />
+          </div>
+
+          <button className="rounded-xl bg-blue-700 px-8 py-4 font-semibold text-white transition hover:bg-blue-800">
+            Search
+          </button>
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-5"
+        >
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-blue-700 transition hover:scale-105"
+          >
+            Free Counselling
+            <ArrowRight size={20} />
+          </Link>
+
+          <Link
+            href="/universities"
+            className="inline-flex items-center gap-2 rounded-full border border-white/40 px-8 py-4 font-semibold text-white transition hover:bg-white/10"
+          >
+            <Globe2 size={20} />
+            Explore Universities
+          </Link>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          className="mt-20 grid gap-6 md:grid-cols-3"
+        >
+          <div className="rounded-2xl bg-white/10 p-8 backdrop-blur">
+            <Stethoscope className="mx-auto mb-4" size={40} />
+            <h3 className="text-4xl font-bold">100+</h3>
+            <p className="mt-2 text-blue-100">
+              Medical Universities
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-white/10 p-8 backdrop-blur">
+            <GraduationCap className="mx-auto mb-4" size={40} />
+            <h3 className="text-4xl font-bold">20+</h3>
+            <p className="mt-2 text-blue-100">
+              Study Destinations
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-white/10 p-8 backdrop-blur">
+            <ShieldCheck className="mx-auto mb-4" size={40} />
+            <h3 className="text-4xl font-bold">1500+</h3>
+            <p className="mt-2 text-blue-100">
+              Students Guided
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
