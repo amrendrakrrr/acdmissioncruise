@@ -7,7 +7,7 @@ const leadership = {
   ceo: {
     name: "Amrendra Yadav",
     role: "CEO & Founder",
-    image: "/images/study-india/team/ceo-founder.png",
+    image: "/images/study-india/team/amrendrayadav.jpg",
     description:
       "Leading AdmissionCruise with a vision to simplify higher education through transparent counselling, trusted university partnerships and a student-first approach.",
   },
@@ -15,7 +15,7 @@ const leadership = {
   gm: {
     name: "Pratiksha Raj",
     role: "General Manager – Admissions & Operations",
-    image: "/images/study-india/team/general-manager.png",
+    image: "/images/study-india/team/pratiksharaj.jpg",
     description:
       "Oversees admissions operations, counsellor coordination and university partnerships while ensuring every student enjoys a transparent admission journey.",
   },
@@ -24,7 +24,7 @@ const leadership = {
     {
       name: "Devagya Singh",
       role: "Study Abroad Specialist",
-      image: "/images/study-india/team/admission-abroad-expert.png",
+      image: "/images/study-india/team/devagyasingh.jpg",
       description:
         "Helping students achieve their dream of studying abroad through counselling, scholarships, university applications and visa guidance.",
     },
@@ -32,14 +32,14 @@ const leadership = {
     {
       name: "Deepak Daksh",
       role: "Student Success Manager",
-      image: "/images/study-india/team/student-success-manager.png",
+      image: "/images/study-india/team/deepakdaksh.jpg",
       description:
         "Supporting students from counselling to admission, documentation and successful enrolment.",
     },
   ],
 };
 
-export default function Team() {
+export default function Team(): import("react").JSX.Element {
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -79,12 +79,14 @@ export default function Team() {
 
             <div className="relative h-[680px] w-full rounded-l-[32px] bg-gradient-to-br from-slate-50 to-blue-50">
               <Image
-                src={leadership.ceo.image}
-                alt={leadership.ceo.name}
-                fill
-                sizes="100vw"
-                className="object-contain transition duration-500 hover:scale-105"
-              />
+                    src={leadership.ceo.image}
+                    alt={leadership.ceo.name}
+                    fill
+                   priority
+                   fetchPriority="high"
+                   sizes="(max-width: 1024px) 100vw, 600px"
+                   className="object-contain transition duration-500 hover:scale-105"
+                   />
             </div>
 
             <div className="p-8 lg:p-14">
@@ -128,7 +130,6 @@ export default function Team() {
             </div>
           </div>
         </motion.div>
-
         {/* General Manager */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -190,7 +191,7 @@ export default function Team() {
                   src={leadership.gm.image}
                   alt={leadership.gm.name}
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 1024px) 100vw, 500px"
                   className="object-contain p-6 transition duration-500 hover:scale-105"
                 />
               </div>
@@ -236,7 +237,6 @@ export default function Team() {
                 className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
 
-                {/* Image */}
                 <div className="flex justify-center bg-gradient-to-br from-slate-50 to-blue-50 py-6">
 
                   <div className="relative h-[360px] w-[300px]">
@@ -244,14 +244,13 @@ export default function Team() {
                       src={member.image}
                       alt={member.name}
                       fill
-                      sizes="220px"
+                      sizes="300px"
                       className="object-cover transition duration-500 hover:scale-105"
                     />
                   </div>
 
                 </div>
 
-                {/* Content */}
                 <div className="p-5 text-center">
 
                   <h3 className="text-xl font-bold text-slate-900">
