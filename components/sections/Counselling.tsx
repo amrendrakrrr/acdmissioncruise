@@ -59,43 +59,47 @@ export default function Counselling() {
     }
   };
 
+  const inputClass =
+    "w-full rounded-xl border-2 border-slate-300 bg-white px-5 py-4 text-base font-medium text-slate-900 placeholder:text-slate-500 placeholder:font-medium outline-none transition-all duration-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-100";
+
   return (
     <section
       id="apply-form"
-      className="py-24 bg-gradient-to-r from-blue-600 to-indigo-700"
+      className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 py-16 sm:py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14"
         >
-          {/* Left Side */}
+          {/* ================= LEFT SIDE ================= */}
           <div className="text-white">
-            <span className="bg-white/20 px-4 py-2 rounded-full">
+            <span className="inline-flex rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white">
               🎓 Free Career Guidance
             </span>
 
-            <h2 className="text-5xl font-bold mt-6">
+            <h2 className="mt-6 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               Book Your Free Counselling Session
             </h2>
 
-            <p className="mt-6 text-blue-100 text-lg leading-8">
+            <p className="mt-5 text-base leading-7 text-white/90 sm:mt-6 sm:text-lg sm:leading-8">
               Get expert admission guidance for Government, Private and
               International Universities. Our counsellors will help you choose
               the best course and university according to your career goals.
             </p>
           </div>
 
-          {/* Right Side */}
-          <div className="bg-white rounded-3xl shadow-2xl p-8">
-            <h3 className="text-3xl font-bold mb-8 text-center">
+          {/* ================= FORM ================= */}
+          <div className="rounded-3xl bg-white p-5 shadow-2xl sm:p-8 lg:p-9">
+            <h3 className="mb-7 text-center text-3xl font-bold text-slate-900">
               Apply Now
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Full Name */}
               <input
                 type="text"
                 name="name"
@@ -103,9 +107,10 @@ export default function Counselling() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputClass}
               />
 
+              {/* Mobile Number */}
               <input
                 type="tel"
                 name="phone"
@@ -113,9 +118,10 @@ export default function Counselling() {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputClass}
               />
 
+              {/* Email */}
               <input
                 type="email"
                 name="email"
@@ -123,9 +129,10 @@ export default function Counselling() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputClass}
               />
 
+              {/* Course */}
               <input
                 type="text"
                 name="course"
@@ -133,22 +140,24 @@ export default function Counselling() {
                 value={formData.course}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputClass}
               />
 
+              {/* Message */}
               <textarea
                 name="message"
                 placeholder="Message (Optional)"
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full border rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
+                className={`${inputClass} resize-none`}
               />
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white py-4 rounded-xl font-bold transition"
+                className="w-full rounded-xl bg-blue-600 py-4 text-base font-bold text-white shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg disabled:cursor-not-allowed disabled:bg-slate-400"
               >
                 {loading ? "Submitting..." : "Book Free Counselling"}
               </button>

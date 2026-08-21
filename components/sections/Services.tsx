@@ -10,8 +10,8 @@ const services = [
         countryCode="IN"
         svg
         style={{
-          width: "1.5em",
-          height: "1.5em",
+          width: "2em",
+          height: "2em",
         }}
       />
     ),
@@ -53,49 +53,185 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center">
-          <span className="bg-blue-100 text-blue-600 px-5 py-2 rounded-full font-semibold">
+    <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* Heading */}
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="inline-flex rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-600">
             Our Services
           </span>
 
-          <h2 className="text-5xl font-bold mt-6">
+          <h2 className="mt-5 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Everything You Need For Admission
           </h2>
 
-          <p className="mt-4 text-lg text-gray-600">
-            AdmissionCruise provides complete admission support from counselling
-            to final admission.
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg">
+            AdmissionCruise provides complete admission support from
+            counselling to final admission.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        {/* Services */}
+        <div
+          className="
+            mt-10
+            grid
+            grid-cols-2
+            gap-3
+            sm:mt-14
+            sm:gap-5
+            lg:mt-16
+            lg:grid-cols-3
+            lg:gap-8
+          "
+        >
           {services.map((service, index) => (
             <motion.div
-              key={index}
-              whileHover={{ y: -10, scale: 1.04 }}
-              transition={{ duration: 0.3 }}
-              className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-blue-100"
+              key={service.title}
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.06,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.15,
+              }}
+              whileHover={{
+                y: -8,
+              }}
+              className="
+                group
+                flex
+                min-w-0
+                h-full
+                flex-col
+                rounded-2xl
+                border
+                border-blue-100
+                bg-gradient-to-br
+                from-white
+                to-blue-50
+                p-4
+                shadow-md
+                transition-all
+                duration-300
+                hover:shadow-2xl
+                sm:rounded-3xl
+                sm:p-6
+                lg:p-8
+              "
             >
-              <div className="flex items-center justify-center text-6xl h-16">
+              {/* Icon */}
+              <div
+                className="
+                  flex
+                  h-11
+                  w-11
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-blue-100
+                  text-2xl
+                  shadow-sm
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
+                  sm:h-14
+                  sm:w-14
+                  sm:rounded-2xl
+                  sm:text-4xl
+                "
+              >
                 {service.icon}
               </div>
 
-              <h3 className="text-2xl font-bold mt-6">
+              {/* Title */}
+              <h3
+                className="
+                  mt-4
+                  min-h-[40px]
+                  text-sm
+                  font-bold
+                  leading-5
+                  text-slate-900
+                  sm:mt-6
+                  sm:min-h-[48px]
+                  sm:text-xl
+                  sm:leading-6
+                  lg:min-h-[56px]
+                  lg:text-2xl
+                  lg:leading-7
+                "
+              >
                 {service.title}
               </h3>
 
-              <p className="text-gray-600 mt-4 leading-7">
+              {/* Description */}
+              <p
+                className="
+                  mt-2
+                  min-h-[60px]
+                  text-xs
+                  leading-5
+                  text-slate-600
+                  sm:mt-4
+                  sm:min-h-[72px]
+                  sm:text-sm
+                  sm:leading-6
+                  lg:min-h-[84px]
+                  lg:text-base
+                  lg:leading-7
+                "
+              >
                 {service.description}
               </p>
 
-              <button className="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition">
-                Learn More
-              </button>
+              {/* Button */}
+              <div className="mt-auto pt-4 sm:pt-6">
+                <button
+                  type="button"
+                  className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    whitespace-nowrap
+                    rounded-full
+                    bg-gradient-to-r
+                    from-blue-600
+                    to-cyan-500
+                    px-3
+                    py-2
+                    text-xs
+                    font-semibold
+                    text-white
+                    shadow-md
+                    transition-all
+                    duration-300
+                    hover:scale-105
+                    hover:shadow-lg
+                    sm:px-5
+                    sm:py-2.5
+                    sm:text-sm
+                  "
+                >
+                  Learn More
+                  <span className="ml-1.5">→</span>
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

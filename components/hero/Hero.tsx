@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#F7FBFF] via-white to-[#EAF4FF]">
+
       {/* Background Glow */}
       <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-400/20 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-cyan-400/20 blur-[150px]" />
@@ -25,14 +26,24 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-screen-xl px-5 py-12 sm:px-6 lg:px-8 xl:px-12">
-        <div className="flex flex-col-reverse items-center justify-between gap-10 lg:flex-row xl:gap-16">
+
+        {/* 
+          MOBILE:
+          Text/content comes first, image comes below.
+
+          LAPTOP/DESKTOP:
+          lg:flex-row keeps the original two-column layout.
+        */}
+        <div className="flex flex-col items-center justify-between gap-10 lg:flex-row xl:gap-16">
+
           {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="-mt-16 w-full lg:w-1/2"
+            className="w-full lg:-mt-16lg:w-1/2"
           >
+
             {/* Badge */}
             <span className="inline-flex items-center rounded-full border border-blue-200 bg-white px-7 py-3 text-lg font-bold text-[#0A2A88] shadow-xl">
               ⭐ Trusted by 1,500+ Students
@@ -55,9 +66,12 @@ export default function Hero() {
 
             {/* Buttons */}
             <div className="mt-8 flex flex-wrap gap-4">
+
+              {/* Apply Now */}
               <Link
-href="/#apply-form"
-scroll={true}                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-[#0A2A88] via-[#1E88E5] to-[#2DA8FF] px-10 py-4 text-lg font-bold tracking-wide text-white shadow-[0_12px_30px_rgba(30,136,229,0.35)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-[0_18px_40px_rgba(30,136,229,0.45)] active:scale-95"
+                href="/#apply-form"
+                scroll={true}
+                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-[#0A2A88] via-[#1E88E5] to-[#2DA8FF] px-10 py-4 text-lg font-bold tracking-wide text-white shadow-[0_12px_30px_rgba(30,136,229,0.35)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-[0_18px_40px_rgba(30,136,229,0.45)] active:scale-95"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   🚀 Apply Now
@@ -66,16 +80,19 @@ scroll={true}                className="group relative overflow-hidden rounded-f
                 <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-700 group-hover:translate-x-full" />
               </Link>
 
+              {/* Explore Universities */}
               <Link
                 href="/universities"
                 className="rounded-full border-2 border-[#0A2A88] px-8 py-4 font-semibold text-[#0A2A88] transition hover:bg-[#0A2A88] hover:text-white"
               >
                 Explore Universities
               </Link>
+
             </div>
 
             {/* Stats */}
             <div className="mt-10 grid grid-cols-3 gap-4">
+
               {[
                 ["500+", "Universities"],
                 ["1.5K+", "Students"],
@@ -94,10 +111,11 @@ scroll={true}                className="group relative overflow-hidden rounded-f
                   </p>
                 </div>
               ))}
+
             </div>
           </motion.div>
 
-          {/* RIGHT */}
+          {/* RIGHT - STUDENT IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -105,14 +123,18 @@ scroll={true}                className="group relative overflow-hidden rounded-f
             className="flex w-full justify-center lg:w-1/2 lg:justify-end"
           >
             <div className="relative">
+
+              {/* Expert Guidance */}
               <div className="absolute -top-4 -left-4 rounded-2xl bg-white px-5 py-3 font-semibold shadow-xl">
                 🎓 Expert Guidance
               </div>
 
+              {/* Study Abroad */}
               <div className="absolute bottom-8 -right-4 rounded-2xl bg-white px-5 py-3 font-semibold shadow-xl">
                 🌍 Study Abroad
               </div>
 
+              {/* Student Image */}
               <Image
                 src="/student.png"
                 alt="Student"
@@ -121,8 +143,10 @@ scroll={true}                className="group relative overflow-hidden rounded-f
                 priority
                 className="h-auto w-[300px] rounded-[35px] shadow-2xl sm:w-[350px] md:w-[380px] lg:w-[400px] xl:w-[460px]"
               />
+
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

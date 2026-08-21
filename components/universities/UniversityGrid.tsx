@@ -12,9 +12,16 @@ import {
 const universities = [
   {
     name: "University of Delhi",
-    location: "Delhi, India",
+    location: "New Delhi, India",
     rank: "Top Public University",
     courses: ["B.Tech", "B.Sc", "B.Com"],
+    href: "/contact",
+  },
+  {
+    name: "Jawaharlal Nehru University",
+    location: "New Delhi, India",
+    rank: "Top Public University",
+    courses: ["Arts", "Science", "Management"],
     href: "/contact",
   },
   {
@@ -45,103 +52,180 @@ const universities = [
     courses: ["IT", "Health Sciences", "Arts"],
     href: "/contact",
   },
-  {
-    name: "University of Oxford",
-    location: "Oxford, UK",
-    rank: "World Top Ranked",
-    courses: ["Law", "Medicine", "Humanities"],
-    href: "/contact",
-  },
 ];
 
 export default function UniversityGrid() {
   return (
-    <section className="bg-slate-50 py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Heading */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-600">
+    <section className="bg-slate-50 py-20 sm:py-24">
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* ================= HEADING ================= */}
+
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+
+          <span className="inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-600">
             Featured Universities
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold text-slate-900 lg:text-5xl">
+          <h2 className="mt-5 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Top Universities for Every Career
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            Browse leading universities across India and the world. Compare
-            locations, explore popular courses, and take the next step toward
-            your academic goals.
+          <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+            Browse leading universities across India and the world.
+            Compare locations, explore popular courses, and take the next
+            step toward your academic goals.
           </p>
+
         </div>
 
-        {/* University Cards */}
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+        {/* ================= UNIVERSITY GRID ================= */}
+
+        <div
+          className="gap-4 sm:gap-6 lg:gap-8"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          }}
+        >
+
           {universities.map((university, index) => (
+
             <motion.div
               key={university.name}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
+
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+
               transition={{
                 duration: 0.5,
                 delay: index * 0.08,
               }}
-              viewport={{ once: true }}
-              className="overflow-hidden rounded-3xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+
+              viewport={{
+                once: true,
+              }}
+
+              className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl sm:rounded-3xl"
             >
-              {/* Banner */}
-              <div className="flex h-48 items-center justify-center bg-gradient-to-br from-blue-700 to-sky-500">
+
+              {/* ================= BANNER ================= */}
+
+              <div className="flex h-28 items-center justify-center bg-gradient-to-br from-blue-700 to-sky-500 sm:h-40 lg:h-48">
+
                 <GraduationCap
-                  size={72}
-                  className="text-white opacity-90"
+                  size={48}
+                  className="text-white opacity-90 sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]"
                 />
+
               </div>
 
-              {/* Content */}
-              <div className="p-8">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-yellow-100 px-3 py-1 text-xs font-semibold text-yellow-700">
+
+              {/* ================= CONTENT ================= */}
+
+              <div className="p-4 sm:p-6 lg:p-8">
+
+                {/* Rank + Rating */}
+
+                <div className="flex items-center justify-between gap-2">
+
+                  <span className="rounded-full bg-yellow-100 px-2 py-1 text-[9px] font-semibold text-yellow-700 sm:px-3 sm:text-xs">
                     {university.rank}
                   </span>
 
-                  <div className="flex items-center gap-1 text-yellow-500">
-                    <Star size={16} fill="currentColor" />
-                    <span className="text-sm font-semibold">4.9</span>
+                  <div className="flex shrink-0 items-center gap-1 text-yellow-500">
+
+                    <Star
+                      size={14}
+                      fill="currentColor"
+                      className="sm:h-4 sm:w-4"
+                    />
+
+                    <span className="text-xs font-semibold sm:text-sm">
+                      4.9
+                    </span>
+
                   </div>
+
                 </div>
 
-                <h3 className="mt-5 text-2xl font-bold text-slate-900">
+
+                {/* University Name */}
+
+                <h3 className="mt-4 text-lg font-bold leading-tight text-slate-900 sm:mt-5 sm:text-xl lg:text-2xl">
                   {university.name}
                 </h3>
 
-                <div className="mt-3 flex items-center gap-2 text-slate-500">
-                  <MapPin size={16} />
-                  <span>{university.location}</span>
+
+                {/* Location */}
+
+                <div className="mt-2 flex items-center gap-1.5 text-xs text-slate-500 sm:mt-3 sm:gap-2 sm:text-sm">
+
+                  <MapPin
+                    size={14}
+                    className="shrink-0 sm:h-4 sm:w-4"
+                  />
+
+                  <span>
+                    {university.location}
+                  </span>
+
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+
+                {/* Courses */}
+
+                <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-6 sm:gap-2">
+
                   {university.courses.map((course) => (
+
                     <span
                       key={course}
-                      className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700"
+                      className="rounded-full bg-blue-50 px-2 py-1 text-[10px] font-medium text-blue-700 sm:px-3 sm:text-xs lg:text-sm"
                     >
                       {course}
                     </span>
+
                   ))}
+
                 </div>
+
+
+                {/* View Details */}
 
                 <Link
                   href={university.href}
-                  className="mt-8 inline-flex items-center gap-2 font-semibold text-blue-600 transition hover:gap-3"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition-all duration-300 hover:gap-3 sm:mt-8 sm:text-base"
                 >
+
                   View Details
-                  <ArrowRight size={18} />
+
+                  <ArrowRight
+                    size={16}
+                    className="sm:h-[18px] sm:w-[18px]"
+                  />
+
                 </Link>
+
               </div>
+
             </motion.div>
+
           ))}
+
         </div>
+
       </div>
+
     </section>
   );
 }
