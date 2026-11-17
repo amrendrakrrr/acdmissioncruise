@@ -41,12 +41,12 @@ export default function Hero() {
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:-mt-16lg:w-1/2"
+            className="w-full lg:-mt-16 lg:w-1/2"
           >
 
             {/* Badge */}
             <span className="inline-flex items-center rounded-full border border-blue-200 bg-white px-7 py-3 text-lg font-bold text-[#0A2A88] shadow-xl">
-              ⭐ Trusted by 1,500+ Students
+              🎓 Free Admission Guidance
             </span>
 
             {/* Heading */}
@@ -94,9 +94,9 @@ export default function Hero() {
             <div className="mt-10 grid grid-cols-3 gap-4">
 
               {[
-                ["500+", "Universities"],
-                ["1.5K+", "Students"],
-                ["98%", "Success Rate"],
+                ["India", "University Options"],
+                ["Abroad", "Study Options"],
+                ["Free", "Counselling"],
               ].map(([value, label]) => (
                 <div
                   key={label}
