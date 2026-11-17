@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 
 const services = [
@@ -16,36 +17,42 @@ const services = [
       />
     ),
     title: "Study in India",
+    href: "/study-india",
     description:
       "Admission guidance for Top Government, Private and Deemed Universities.",
   },
   {
     icon: "🌍",
     title: "Study Abroad",
+    href: "/study-abroad",
     description:
-      "Get admission assistance for universities across 30+ countries.",
+      "Get admission assistance for universities in international destinations.",
   },
   {
     icon: "🩺",
     title: "MBBS Abroad",
+    href: "/mbbs-abroad",
     description:
       "Affordable MBBS admissions with complete documentation support.",
   },
   {
     icon: "🎓",
     title: "Scholarships",
+    href: "/scholarships",
     description:
       "Find government and university scholarships for deserving students.",
   },
   {
     icon: "💰",
     title: "Education Loan",
+    href: "/#apply-form",
     description:
       "Quick education loan assistance from leading financial institutions.",
   },
   {
     icon: "👨‍🏫",
     title: "Career Counselling",
+    href: "/#apply-form",
     description:
       "One-to-one counselling to choose the right career and university.",
   },
@@ -53,7 +60,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+    <section className="w-full bg-[#f8faff] py-16 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -116,15 +123,13 @@ export default function Services() {
                 flex-col
                 rounded-2xl
                 border
-                border-blue-100
-                bg-gradient-to-br
-                from-white
-                to-blue-50
+                border-[#e1e9f5]
+                bg-white
                 p-4
-                shadow-md
+                shadow-sm
                 transition-all
                 duration-300
-                hover:shadow-2xl
+                hover:shadow-xl
                 sm:rounded-3xl
                 sm:p-6
                 lg:p-8
@@ -198,8 +203,8 @@ export default function Services() {
 
               {/* Button */}
               <div className="mt-auto pt-4 sm:pt-6">
-                <button
-                  type="button"
+                <Link
+                  href={service.href}
                   className="
                     inline-flex
                     items-center
@@ -207,8 +212,8 @@ export default function Services() {
                     whitespace-nowrap
                     rounded-full
                     bg-gradient-to-r
-                    from-blue-600
-                    to-cyan-500
+                    from-[#174da3]
+                    to-[#2465c5]
                     px-3
                     py-2
                     text-xs
@@ -226,7 +231,7 @@ export default function Services() {
                 >
                   Learn More
                   <span className="ml-1.5">→</span>
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))}
