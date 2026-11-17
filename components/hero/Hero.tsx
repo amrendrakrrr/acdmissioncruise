@@ -1,152 +1,62 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { ArrowRight, ArrowUpRight, CheckCircle2, Compass, GraduationCap, Globe2, MessageCircle, Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#F7FBFF] via-white to-[#EAF4FF]">
-
-      {/* Background Glow */}
-      <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-400/20 blur-[120px]" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-cyan-400/20 blur-[150px]" />
-      <div className="absolute top-1/2 left-1/2 h-60 w-60 rounded-full bg-indigo-300/20 blur-[120px]" />
-
-      {/* World Map */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-10">
-        <Image
-          src="/world-map.png"
-          alt="World Map"
-          width={1700}
-          height={900}
-          priority
-          className="h-auto w-[95%] object-contain"
-        />
+    <section className="relative isolate overflow-hidden bg-[#f7f9fd] text-[#102445]">
+      <div className="pointer-events-none absolute -right-40 -top-48 h-[580px] w-[580px] rounded-full bg-[#dbe9ff] opacity-75 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-52 -left-40 h-[420px] w-[420px] rounded-full bg-[#e0f5f3] opacity-65 blur-3xl" />
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 pt-12 sm:px-8 sm:pt-16 lg:grid-cols-[1.08fr_.92fr] lg:gap-16 lg:pb-24 lg:pt-24">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#cbdcf5] bg-white/90 px-4 py-2 text-xs font-bold tracking-[.08em] text-[#2456a3] shadow-sm sm:text-sm">
+            <Sparkles size={15} aria-hidden="true" />
+            YOUR NEXT CHAPTER STARTS HERE
+          </div>
+          <h1 className="mt-7 max-w-[760px] text-[clamp(2.65rem,5.1vw,5.2rem)] font-extrabold leading-[1.08] tracking-[-.055em]">
+            Your ambition.
+            <span className="block text-[#2465c5]">Our guidance.</span>
+            <span className="block">A world of possibilities.</span>
+          </h1>
+          <p className="mt-7 max-w-xl text-base leading-8 text-[#52647f] sm:text-lg">
+            Explore universities in India and abroad, understand your options,
+            and take your next step with personalized admission counselling.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href="/#apply-form" className="inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-[#174da3] px-7 py-4 text-base font-semibold text-white shadow-[0_12px_28px_rgba(23,77,163,.2)] transition hover:bg-[#103d88] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#174da3]">
+              Get free counselling <ArrowRight size={19} aria-hidden="true" />
+            </Link>
+            <Link href="/universities" className="inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl border border-[#c8d6e9] bg-white px-7 py-4 text-base font-semibold text-[#163c72] transition hover:border-[#174da3] hover:bg-[#edf4ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#174da3]">
+              Explore universities <ArrowUpRight size={19} aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm font-medium text-[#52647f]">
+            <span className="inline-flex items-center gap-2"><CheckCircle2 className="text-[#16816e]" size={18} /> India &amp; abroad</span>
+            <span className="inline-flex items-center gap-2"><CheckCircle2 className="text-[#16816e]" size={18} /> Course guidance</span>
+            <span className="inline-flex items-center gap-2"><CheckCircle2 className="text-[#16816e]" size={18} /> Free initial counselling</span>
+          </div>
+        </div>
+        <div className="relative mx-auto w-full max-w-[540px] lg:ml-auto">
+          <div className="absolute inset-x-6 bottom-2 top-8 rounded-[2.5rem] bg-gradient-to-br from-[#c8e2ff] via-[#e2efff] to-[#c6e7e6]" />
+          <div className="absolute inset-x-14 bottom-0 h-16 rounded-full bg-[#264b88]/10 blur-2xl" />
+          <div className="relative mx-auto flex min-h-[340px] items-end justify-center pt-8 sm:min-h-[480px]">
+            <Image src="/student.png" alt="Student exploring education opportunities" width={500} height={625} priority sizes="(max-width: 1024px) 90vw, 500px" className="relative z-10 h-auto max-h-[490px] w-auto max-w-[78%] object-contain drop-shadow-[0_20px_32px_rgba(29,57,102,.12)]" />
+          </div>
+          <div className="absolute left-0 top-[19%] z-20 flex items-center gap-3 rounded-2xl border border-white bg-white/95 px-4 py-3 shadow-[0_12px_32px_rgba(16,36,69,.12)] backdrop-blur sm:-left-6">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf1ff] text-[#2258b1]"><GraduationCap size={21} /></span>
+            <span className="text-sm font-bold">Study in India</span>
+          </div>
+          <div className="absolute -right-1 bottom-[21%] z-20 flex items-center gap-3 rounded-2xl border border-white bg-white/95 px-4 py-3 shadow-[0_12px_32px_rgba(16,36,69,.12)] backdrop-blur sm:-right-5">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e7f7f4] text-[#137b6c]"><Globe2 size={21} /></span>
+            <span className="text-sm font-bold">Study abroad</span>
+          </div>
+        </div>
       </div>
-
-      <div className="relative mx-auto max-w-screen-xl px-5 py-12 sm:px-6 lg:px-8 xl:px-12">
-
-        {/* 
-          MOBILE:
-          Text/content comes first, image comes below.
-
-          LAPTOP/DESKTOP:
-          lg:flex-row keeps the original two-column layout.
-        */}
-        <div className="flex flex-col items-center justify-between gap-10 lg:flex-row xl:gap-16">
-
-          {/* LEFT */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:-mt-16 lg:w-1/2"
-          >
-
-            {/* Badge */}
-            <span className="inline-flex items-center rounded-full border border-blue-200 bg-white px-7 py-3 text-lg font-bold text-[#0A2A88] shadow-xl">
-              🎓 Free Admission Guidance
-            </span>
-
-            {/* Heading */}
-            <h1 className="mt-6 text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl md:text-6xl xl:text-7xl">
-              Navigate
-              <br />
-              <span className="bg-gradient-to-r from-[#0A2A88] to-[#2DA8FF] bg-clip-text text-transparent">
-                Your Future
-              </span>
-            </h1>
-
-            {/* Description */}
-            <p className="mt-6 max-w-xl text-base leading-8 text-gray-600 sm:text-lg">
-              Get expert admission guidance for India's Top Government,
-              Central, Private Universities and Study Abroad Programs.
-            </p>
-
-            {/* Buttons */}
-            <div className="mt-8 flex flex-wrap gap-4">
-
-              {/* Apply Now */}
-              <Link
-                href="/#apply-form"
-                scroll={true}
-                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-[#0A2A88] via-[#1E88E5] to-[#2DA8FF] px-10 py-4 text-lg font-bold tracking-wide text-white shadow-[0_12px_30px_rgba(30,136,229,0.35)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-[0_18px_40px_rgba(30,136,229,0.45)] active:scale-95"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  🚀 Apply Now
-                </span>
-
-                <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-700 group-hover:translate-x-full" />
-              </Link>
-
-              {/* Explore Universities */}
-              <Link
-                href="/universities"
-                className="rounded-full border-2 border-[#0A2A88] px-8 py-4 font-semibold text-[#0A2A88] transition hover:bg-[#0A2A88] hover:text-white"
-              >
-                Explore Universities
-              </Link>
-
-            </div>
-
-            {/* Stats */}
-            <div className="mt-10 grid grid-cols-3 gap-4">
-
-              {[
-                ["India", "University Options"],
-                ["Abroad", "Study Options"],
-                ["Free", "Counselling"],
-              ].map(([value, label]) => (
-                <div
-                  key={label}
-                  className="rounded-3xl bg-white/90 p-5 text-center shadow-xl backdrop-blur-lg"
-                >
-                  <h3 className="text-2xl font-bold text-[#0A2A88] sm:text-3xl">
-                    {value}
-                  </h3>
-
-                  <p className="mt-2 text-sm text-gray-500 sm:text-base">
-                    {label}
-                  </p>
-                </div>
-              ))}
-
-            </div>
-          </motion.div>
-
-          {/* RIGHT - STUDENT IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className="flex w-full justify-center lg:w-1/2 lg:justify-end"
-          >
-            <div className="relative">
-
-              {/* Expert Guidance */}
-              <div className="absolute -top-4 -left-4 rounded-2xl bg-white px-5 py-3 font-semibold shadow-xl">
-                🎓 Expert Guidance
-              </div>
-
-              {/* Study Abroad */}
-              <div className="absolute bottom-8 -right-4 rounded-2xl bg-white px-5 py-3 font-semibold shadow-xl">
-                🌍 Study Abroad
-              </div>
-
-              {/* Student Image */}
-              <Image
-                src="/student.png"
-                alt="Student"
-                width={500}
-                height={625}
-                priority
-                className="h-auto w-[300px] rounded-[35px] shadow-2xl sm:w-[350px] md:w-[380px] lg:w-[400px] xl:w-[460px]"
-              />
-
-            </div>
-          </motion.div>
-
+      <div className="relative border-t border-[#e0e8f3] bg-white/75">
+        <div className="mx-auto grid max-w-7xl gap-4 px-5 py-6 sm:grid-cols-3 sm:px-8">
+          <div className="flex items-center gap-3"><Compass className="shrink-0 text-[#2465c5]" size={24} /><span className="text-sm font-semibold text-[#334761]">Explore courses and universities</span></div>
+          <div className="flex items-center gap-3"><MessageCircle className="shrink-0 text-[#2465c5]" size={24} /><span className="text-sm font-semibold text-[#334761]">Talk through your options</span></div>
+          <div className="flex items-center gap-3"><GraduationCap className="shrink-0 text-[#2465c5]" size={24} /><span className="text-sm font-semibold text-[#334761]">Plan your admission journey</span></div>
         </div>
       </div>
     </section>
